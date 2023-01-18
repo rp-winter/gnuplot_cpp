@@ -71,7 +71,6 @@ class Gnuplot
         FILE *gp;
         gp = fopen("gnuplot_cmd.gp", "w");
         fprintf(gp, this->cmd.c_str());
-        printf(this->cmd.c_str());
         fprintf(gp, this->dataPoints.c_str());
         fclose(gp);
         fprintf(fp, "load \"gnuplot_cmd.gp\"\n");
