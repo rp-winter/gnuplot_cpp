@@ -41,7 +41,6 @@ a.arrPlot2d(arrx, arry);
 We can plot function of the form y = f(x) using yplot(). This function takes the argument a string with functional form.
 ```
 a.yplot("cos(x)");
-
 ```
 ## Plotting graph from a data file.
 We can plot data stored in data file using fplot(). This function takes the argument a string containing the name of the data file along with extension.  
