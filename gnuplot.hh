@@ -11,7 +11,7 @@ class Gnuplot
     std::string t = "";
     std::string w = "lp";
     int lw = 2;
-    int dt = 3;
+    int dt = 1;
     std::string dataPoints = "";
     int no_arrPlot = 0;
     Gnuplot(std::string t) {
@@ -32,7 +32,7 @@ class Gnuplot
             this->t = "";
             this->w = "lp";
             this->lw = 2;
-            this->dt = 3;
+            this->dt = 1;
         }
 
     }
@@ -71,6 +71,7 @@ class Gnuplot
         FILE *gp;
         gp = fopen("gnuplot_cmd.gp", "w");
         fprintf(gp, this->cmd.c_str());
+        printf(this->cmd.c_str());
         fprintf(gp, this->dataPoints.c_str());
         fclose(gp);
         fprintf(fp, "load \"gnuplot_cmd.gp\"\n");
