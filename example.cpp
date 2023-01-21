@@ -16,6 +16,11 @@ int main() {
     a.dt = 3; // Changing the line type to dashed line
     a.yplot("cos(x)"); // Plotting y = cos(x)
     a.t = "x^2 + 1"; // Chaning the Legend title of the plot
+    a.xrange(-10, 5); // Setting x range
+    a.yrange(-13, 13); // Setting y range
+    a.xlabel("x axis"); // Setting x axis label
+    a.ylabel("y axis"); // Setting y axis label
+    a.title("Random Graph"); // Setting title of the graph
     a.display(); // Displaying the plot
     return 0;
 }

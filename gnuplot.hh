@@ -7,6 +7,7 @@ class Gnuplot
 {
     public:
     std::string cmd;
+    std::string set_cmd = "";
     int keepSet = 0;
     std::string t = "";
     std::string w = "lp";
@@ -63,6 +64,26 @@ class Gnuplot
         this->no_arrPlot++;
     }
 
+    void xrange(int a, int b) {
+        this->set_cmd += "set xrange ["+std::to_string(a)+":"+std::to_string(b)+"]\n";
+    }
+    
+    void yrange(int a, int b) {
+        this->set_cmd += "set yrange ["+std::to_string(a)+":"+std::to_string(b)+"]\n";
+    }
+
+    void xlabel(std::string s) {
+        this->set_cmd += "set xlabel \"" + s + "\"\n";
+    }
+
+    void ylabel(std::string s) {
+        this->set_cmd += "set ylabel \"" + s + "\"\n";
+    }
+
+    void title(std::string s) {
+        this->set_cmd += "set title \"" + s + "\"\n";
+    }
+
     void display() {
         this->cmd.pop_back();
         this->cmd += "\n";
@@ -70,6 +91,7 @@ class Gnuplot
         fp = popen("gnuplot", "w");
         FILE *gp;
         gp = fopen("gnuplot_cmd.gp", "w");
+        fprintf(gp, this->set_cmd.c_str());
         fprintf(gp, this->cmd.c_str());
         fprintf(gp, this->dataPoints.c_str());
         fclose(gp);
