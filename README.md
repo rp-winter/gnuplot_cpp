@@ -71,13 +71,13 @@ a.display();
 
 # Changing the style and other options
 
-1) Legend Title:
+### 1) Legend Title:
 To change the legend title of a graph.
 ```
 a.t = "title of the graph";
 ```
 
-2) Style of graph: 
+### 2) Style of graph: 
 To change the style of graph (line, linepoints, point):
 ```
 a.w = "lp"; //linepoints
@@ -86,20 +86,20 @@ a.w = "l"; //line
 ```
 Details of different style of graph can be obtained in Gnuplot documentation.  
 
-3) Line width: 
+### 3) Line width: 
 Line width of a line graph can be set using,
 ```
 a.lw = 2;
 ```
 
-4) Dash Type: 
+### 4) Dash Type: 
 To plot dashed line, or dotted lines.
 ```
 a.dt = 3;
 ```
 The type of lines corresponding to different values can be found in gnuplot documentation.  
 
-5) Setting Range of x axis and y axis:  
+### 5) Setting Range of x axis and y axis:  
 To set range of x axis, use xrange() function. It takes two arguments (1) x axis range from, (2) x axis range to.  
 ```
 a.xrange(-10, 5);
@@ -109,13 +109,13 @@ To set range of y axis, use yrange() function.
 a.yrange(-13, 13);
 ```
 
-6) Tittle of the Graph:
+### 6) Tittle of the Graph:
 To set the heading title of the entire plot, use title() function. It takes a string with the title as the name.
 ```
 a.title("Distance vs Time");
 ```
 
-7) X axis and Y axis labels:  
+### 7) X axis and Y axis labels:  
 To set x axis label use xlabel() and to set y axis label use ylabel(). Both the function takes a string with the x axis label or the y axis label as the argument.
 ```
 a.xlabel("Time"); // To set label of x axis
