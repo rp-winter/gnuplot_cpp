@@ -97,7 +97,30 @@ To plot dashed line, or dotted lines.
 ```
 a.dt = 3;
 ```
-The type of lines corresponding to different values can be found in gnuplot documentation.
+The type of lines corresponding to different values can be found in gnuplot documentation.  
+
+5) Setting Range of x axis and y axis:  
+To set range of x axis, use xrange() function. It takes two arguments (1) x axis range from, (2) x axis range to.  
+```
+a.xrange(-10, 5);
+```
+To set range of y axis, use yrange() function.
+```
+a.yrange(-13, 13);
+```
+
+6) Tittle of the Graph:
+To set the heading title of the entire plot, use title() function. It takes a string with the title as the name.
+```
+a.title("Distance vs Time");
+```
+
+7) X axis and Y axis labels:  
+To set x axis label use xlabel() and to set y axis label use ylabel(). Both the function takes a string with the x axis label or the y axis label as the argument.
+```
+a.xlabel("Time"); // To set label of x axis
+a.ylabel("Distance"); // To set label of y axis
+```
 
 # PS
 Currently only these functionalities has been added. I plan to add more functionalities if time permits.
