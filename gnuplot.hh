@@ -64,11 +64,11 @@ class Gnuplot
         this->no_arrPlot++;
     }
 
-    void xrange(int a, int b) {
+    void xrange(double a, double b) {
         this->set_cmd += "set xrange ["+std::to_string(a)+":"+std::to_string(b)+"]\n";
     }
     
-    void yrange(int a, int b) {
+    void yrange(double a, double b) {
         this->set_cmd += "set yrange ["+std::to_string(a)+":"+std::to_string(b)+"]\n";
     }
 
