@@ -97,7 +97,7 @@ class Gnuplot
         fclose(gp);
         fprintf(fp, "load \"gnuplot_cmd.gp\"\n");
         fflush(fp);
-        std::cout<<"Press Ctrl + C to exit!";
+        std::cout<<"\nPress Ctrl + C to exit!";
         getchar();
         delete this;
     }
