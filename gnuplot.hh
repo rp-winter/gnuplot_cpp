@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 
 class Gnuplot
 {
@@ -41,10 +42,10 @@ class Gnuplot
         this->cmd += " "+equation+",";
     }
 
-    void arrPlot2d(float x[], float y[]) {
+    void arrPlot2d(int n, double x[], double y[]) {
         std::string name;
         int i;
-        if(t.empty()) {
+        if(this->t.empty()) {
             name = "Arr"+std::to_string(this->no_arrPlot);
         }
         else {
@@ -52,11 +53,6 @@ class Gnuplot
         }
         this->cmd += " '-' t '" + name + "' w " + w + " lw "+std::to_string(lw)+
         " dt "+std::to_string(dt)+",";
-        
-        int n = -(*(&x + 1) - x);
-        if (n>-(*(&y + 1) - y)) {
-            n = -(*(&y + 1) - y);
-        }
         for (i=0; i<n; i++) {
             this->dataPoints += std::to_string(x[i]) + " " + std::to_string(y[i]) + "\n";
         }
@@ -87,18 +83,14 @@ class Gnuplot
     void display() {
         this->cmd.pop_back();
         this->cmd += "\n";
+        std::ofstream gp("gnuplot_cmd.gp");
+        gp << this->set_cmd << this->cmd << this->dataPoints;
+        gp.close();
         FILE *fp;
         fp = popen("gnuplot", "w");
-        FILE *gp;
-        gp = fopen("gnuplot_cmd.gp", "w");
-        fprintf(gp, this->set_cmd.c_str());
-        fprintf(gp, this->cmd.c_str());
-        fprintf(gp, this->dataPoints.c_str());
-        fclose(gp);
         fprintf(fp, "load \"gnuplot_cmd.gp\"\n");
         fflush(fp);
         std::cout<<"\nPress Ctrl + C to exit!";
         getchar();
-        delete this;
     }
 };
